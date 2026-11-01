@@ -411,7 +411,7 @@
         $('answer').replaceChildren(element('span',result.spoken_answer+' '),element('strong',result.hearth_check||''));$('answer').hidden=false;speak(result.spoken_answer+' '+(result.hearth_check||''));
         $('assumptions').replaceChildren(...(result.assumptions||[]).map(a=>element('li','Assumed: '+String(a).replace(/^assum(ed|ing|es)?:?\s*(that\s+)?/i,''))));
         $('askStatus').textContent='Two dinners proposed by Muse Spark. Hearth recomputed the shopping list from saved stock'+(result.pantry_flags_corrected?' and corrected '+result.pantry_flags_corrected+' pantry claims.':'.');
-        dinnerIds=null;await loadPlan();$('planSection').scrollIntoView({behavior:'smooth',block:'start'});
+        dinnerIds=null;try{await refreshState();}catch(_){}await loadPlan();$('planSection').scrollIntoView({behavior:'smooth',block:'start'});
       }catch(error){$('askStatus').textContent='Planning failed: '+error.message;}
       finally{$('askButton').disabled=false;}
     }
