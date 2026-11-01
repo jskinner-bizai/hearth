@@ -400,7 +400,7 @@
         draft=result.items.map(i=>({name:i.name,quantity:i.quantity,unit:i.unit}));dirty=true;clearPreview();renderDraft();
         const checks=result.items.filter(i=>i.needs_check);$('scanChecks').replaceChildren(...checks.map(i=>element('li',i.name+': '+i.reasons.join(', '),'flag')));
         $('scanStatus').textContent=result.items.length+' items drafted'+(checks.length?', '+checks.length+' need a quick check (orange).':'.')+(isVideo?' Countable items were tracked across the video by SAM 3.1 and counted once each.':' Countable items were confirmed one by one by SAM 3.1.')+' Review the draft, then confirm.';
-        say('Photo scanned into the draft. Nothing is saved until you review and confirm.');
+        say((isVideo?'Video':'Photo')+' scanned into the draft. Nothing is saved until you review and confirm.');
       }catch(error){$('scanStatus').textContent='Scan failed: '+error.message;}
     });
     function speak(text){try{if(!('speechSynthesis' in window)||!text)return;speechSynthesis.cancel();const u=new SpeechSynthesisUtterance(text);u.rate=1.02;speechSynthesis.speak(u);}catch(_){}}
