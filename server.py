@@ -14,17 +14,22 @@ import meta_client
 
 PUBLIC_HOST = os.environ.get("HEARTH_PUBLIC_HOST", "").strip().lower()
 AI_LIMIT_PER_MIN = int(os.environ.get("HEARTH_AI_PER_MIN", "12"))
-_ai_calls, _ai_lock = [], threading.Lock()
+AI_LIMIT_PER_DAY = int(os.environ.get("HEARTH_AI_PER_DAY", "400"))
+_ai_calls, _ai_day, _ai_lock = [], [], threading.Lock()
 
 
 def ai_budget():
-    """Simple global rate limit so a public demo cannot run up the Meta bill."""
+    """Global per-minute and per-day limits so a public demo cannot run up the Meta bill."""
     now = time.time()
     with _ai_lock:
         _ai_calls[:] = [t for t in _ai_calls if now - t < 60]
+        _ai_day[:] = [t for t in _ai_day if now - t < 86400]
+        if len(_ai_day) >= AI_LIMIT_PER_DAY:
+            raise HearthError("daily_limit", "Hearth's demo has hit its daily AI limit. Try again tomorrow.", 429)
         if len(_ai_calls) >= AI_LIMIT_PER_MIN:
             raise HearthError("busy", "Hearth is handling a lot of requests. Try again in a minute.", 429)
         _ai_calls.append(now)
+        _ai_day.append(now)
 
 ROOT = Path(__file__).resolve().parent
 
