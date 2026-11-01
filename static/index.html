@@ -1,10 +1,10 @@
-﻿<!doctype html>
+<!doctype html>
 <html lang="en">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <meta name="color-scheme" content="light">
-  <title>Hearth Â· A little less dinner admin</title>
+  <title>Hearth · A little less dinner admin</title>
   <style>
     :root{--paper:#f6f4ee;--card:#fffefb;--ink:#243d34;--muted:#596b61;--line:#d9dfd4;--green:#234f3d;--light:#eaf0e6;--amber:#76501c;--amber-bg:#fff3db;--red:#8e3e32;--radius:20px}
     *{box-sizing:border-box}body{margin:0;background:var(--paper);color:var(--ink);font:16px/1.5 system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}button,input,select{font:inherit}button{cursor:pointer}button:disabled{cursor:default;opacity:.53}a{color:var(--green)}button:focus-visible,input:focus-visible,select:focus-visible,a:focus-visible{outline:3px solid #b76f30;outline-offset:3px}button,input,select{min-height:44px}button{border:1px solid var(--line);border-radius:12px;background:var(--card);color:var(--ink);padding:10px 15px;font-weight:650}button:hover:enabled{background:var(--light)}button.primary{background:var(--green);color:white;border-color:var(--green)}button.primary:hover:enabled{background:#183c2d}.quiet{background:transparent}.danger{color:var(--red)}input,select{width:100%;border:1px solid #acb9aa;border-radius:10px;background:white;color:var(--ink);padding:9px 10px}input::placeholder{color:#68756c}h1,h2,h3,p{margin-top:0}h1{font-size:clamp(2rem,5vw,3.25rem);line-height:1.1;letter-spacing:-.045em;margin-bottom:16px;max-width:690px}h2{font-size:1.25rem;letter-spacing:-.02em;margin-bottom:6px}h3{font-size:1.05rem;margin-bottom:8px}p{margin-bottom:12px}.muted{color:var(--muted)}.small{font-size:.875rem}.eyebrow{text-transform:uppercase;letter-spacing:.14em;font-weight:750;font-size:.72rem;color:var(--muted)}.wrap{max-width:1160px;margin:auto;padding:0 28px}.topbar{display:flex;justify-content:space-between;gap:16px;align-items:center;padding:26px 0}.brand{display:flex;align-items:center;gap:10px;font-size:1.5rem;font-weight:750;letter-spacing:-.04em}.mark{display:grid;place-items:center;width:35px;height:35px;background:var(--green);color:#ffe7bf;border-radius:12px;font-size:24px;line-height:1}.badge{border:1px solid #c7d4c1;border-radius:99px;padding:7px 12px;background:var(--light);font-size:.78rem;font-weight:650}.hero{padding:36px 0 30px}.hero p{max-width:660px;font-size:1.06rem}.steps{display:flex;flex-wrap:wrap;gap:10px;margin:22px 0 0;padding:0;list-style:none}.steps li{display:flex;align-items:center;gap:7px;font-size:.82rem;color:var(--muted)}.stepnum{border:1px solid #adbda7;border-radius:50%;width:23px;height:23px;display:grid;place-items:center;font-size:.73rem;background:#fff}.layout{display:grid;grid-template-columns:minmax(0,1.35fr) minmax(280px,1fr);gap:20px;align-items:start}.card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:24px;min-width:0}.card-head{display:flex;align-items:flex-start;justify-content:space-between;gap:14px;margin-bottom:18px}.card-head p{margin:0}.pill{white-space:nowrap;font-size:.75rem;background:var(--light);padding:4px 9px;border-radius:8px;font-weight:650}.draft-pill{background:var(--amber-bg);color:var(--amber)}.toolbar{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:18px}.candidate-head,.candidate-row{display:grid;grid-template-columns:minmax(100px,1fr) minmax(72px,.6fr) 78px 44px;gap:8px;align-items:start}.candidate-head{font-size:.75rem;color:var(--muted);font-weight:650;padding:0 1px 6px}.candidate-row{margin-bottom:9px}.remove{padding:8px;width:44px;font-size:20px;line-height:1}.form-foot{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:12px;margin-top:18px;padding-top:18px;border-top:1px solid var(--line)}.hint{max-width:430px}.notice{padding:13px 15px;border-radius:12px;background:var(--light);margin:16px 0}.notice.error{background:#f9e8e2;color:#7c322a}.notice.warning{background:var(--amber-bg);color:var(--amber)}.notice p:last-child{margin:0}.state-list,.preview-list{list-style:none;padding:0;margin:14px 0}.state-list li,.preview-list li{display:flex;justify-content:space-between;gap:12px;padding:9px 0;border-bottom:1px solid #edf0e8;overflow-wrap:anywhere}.state-list li:last-child,.preview-list li:last-child{border-bottom:0}.amount{color:var(--muted);text-align:right}.unknown{color:var(--amber);font-weight:650}.empty{padding:20px 0;color:var(--muted)}.aside{display:grid;gap:20px}.review{border:1.5px solid #a8b99f}.review[hidden],*[hidden]{display:none!important}.review .action{width:100%;margin-top:10px}.changes{font-size:.86rem;color:var(--muted)}.changes strong{color:var(--ink)}.receipt{border-left:3px solid var(--green);padding-left:13px;margin-top:18px}.receipt code{font-size:.72rem;overflow-wrap:anywhere}.plan{margin:20px 0 40px}.plan-head{display:flex;justify-content:space-between;align-items:start;gap:16px;margin-bottom:20px}.dinners{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:20px 0}.dinner{background:#eef1e7;border:1px solid #dbe1d1;border-radius:14px;padding:18px}.dinner .eyebrow{margin-bottom:8px}.dinner p{font-size:.88rem;margin-bottom:0}.shopping{width:100%;border-collapse:collapse;font-size:.9rem}.shopping th{text-align:left;font-size:.75rem;text-transform:uppercase;letter-spacing:.05em;color:var(--muted);padding:10px 8px;border-bottom:1px solid var(--line)}.shopping td{padding:12px 8px;border-bottom:1px solid #edf0e8;vertical-align:top;overflow-wrap:anywhere}.shopping th:first-child,.shopping td:first-child{padding-left:0}.shopping th:last-child,.shopping td:last-child{padding-right:0}.status-label{font-weight:650}.plan-note{font-size:.82rem;color:var(--muted);margin:16px 0 0}.footer{font-size:.8rem;color:var(--muted);padding-bottom:32px;border-top:1px solid var(--line);padding-top:18px}.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}.skip{position:absolute;top:-60px;left:12px;background:white;padding:10px;z-index:5}.skip:focus{top:10px}#message{scroll-margin-top:20px}#reviewTitle:focus,#receipt:focus{outline:none}
@@ -22,9 +22,9 @@
 <body>
   <a class="skip" href="#pantryTitle">Skip to pantry</a>
   <div class="wrap">
-    <header class="topbar"><div class="brand"><span class="mark" aria-hidden="true">âŒ‚</span>Hearth</div><div class="badge">Muse Spark Â· SAM 3.1 Â· Muse Voice Transcribe</div></header>
+    <header class="topbar"><div class="brand"><span class="mark" aria-hidden="true">⌂</span>Hearth</div><div class="badge">Muse Spark · SAM 3.1 · Muse Voice Transcribe</div></header>
     <main>
-      <section class="hero" aria-labelledby="pageTitle"><p class="eyebrow">A little less dinner admin</p><h1 id="pageTitle">Start with whatâ€™s<br>actually in the pantry.</h1><p class="muted">Correct the list, review the changes, then save. Hearth uses that confirmed pantry for a simple two-dinner preview.</p><ol class="steps" aria-label="Pantry workflow"><li><span class="stepnum">1</span>Correct your draft</li><li><span class="stepnum">2</span>Review &amp; confirm</li><li><span class="stepnum">3</span>See dinner options</li></ol></section>
+      <section class="hero" aria-labelledby="pageTitle"><p class="eyebrow">A little less dinner admin</p><h1 id="pageTitle">Start with what’s<br>actually in the pantry.</h1><p class="muted">Scan the fridge, fix anything Hearth got wrong, then confirm. Dinner plans and shopping lists only ever use what you confirmed.</p><ol class="steps" aria-label="Pantry workflow"><li><span class="stepnum">1</span>Correct your draft</li><li><span class="stepnum">2</span>Review &amp; confirm</li><li><span class="stepnum">3</span>See dinner options</li></ol></section>
       <section class="card ask" aria-labelledby="askTitle">
         <div class="card-head"><div><p class="eyebrow">Look, listen, propose</p><h2 id="askTitle">Show Hearth the fridge. Ask about dinner.</h2>
         <p class="muted small">Meta models only draft. You review every change before it is saved.</p></div></div>
@@ -45,31 +45,31 @@
           </div>
         </div>
       </section>
-      <div id="message" class="notice" role="status" aria-live="polite" aria-atomic="true">Connecting to the local pantryâ€¦</div>
+      <div id="message" class="notice" role="status" aria-live="polite" aria-atomic="true">Loading your pantry…</div>
       <div class="layout">
         <section class="card" aria-labelledby="pantryTitle">
           <div class="card-head"><div><h2 id="pantryTitle">Pantry draft</h2><p class="muted small">Nothing here changes saved stock until you confirm.</p></div><span id="draftBadge" class="pill draft-pill">Draft</span></div>
-          <div class="toolbar"><button id="exampleButton" type="button" disabled>Load fictional example</button><button id="savedButton" class="quiet" type="button" disabled>Use saved pantry</button></div>
+          <div class="toolbar"><button id="exampleButton" type="button" disabled>Load sample pantry</button><button id="savedButton" class="quiet" type="button" disabled>Use saved pantry</button></div>
           <form id="pantryForm" novalidate>
             <div class="candidate-head" aria-hidden="true"><span>Ingredient</span><span>Amount</span><span>Unit</span><span></span></div>
             <div id="candidateRows"></div>
             <button id="addButton" class="quiet" type="button" disabled>+ Add ingredient</button>
-            <p class="muted small hint" style="margin:14px 0 0">Leave the amount blank when youâ€™re unsure. Unknown stock will be flagged for checking.</p>
+            <p class="muted small hint" style="margin:14px 0 0">Leave the amount blank when you’re unsure. Unknown stock will be flagged for checking.</p>
             <div class="form-foot"><span id="draftRevision" class="muted small">Saved revision not loaded</span><button id="previewButton" class="primary" type="submit" disabled>Review pantry changes</button></div>
           </form>
         </section>
         <div class="aside">
           <section id="reviewCard" class="card review" aria-labelledby="reviewTitle" hidden>
-            <p class="eyebrow">Review before saving</p><h2 id="reviewTitle" tabindex="-1">Confirm this pantry</h2><p class="muted small">Only saves these pantry items locally.</p><div id="diff" class="changes"></div><ul id="previewItems" class="preview-list"></ul><p id="expiry" class="muted small"></p><button id="confirmButton" class="primary action" type="button">Confirm inventory</button><button id="checkButton" class="quiet action" type="button" hidden>Check saved result</button>
+            <p class="eyebrow">Review before saving</p><h2 id="reviewTitle" tabindex="-1">Confirm this pantry</h2><p class="muted small">Saves exactly these pantry items.</p><div id="diff" class="changes"></div><ul id="previewItems" class="preview-list"></ul><p id="expiry" class="muted small"></p><button id="confirmButton" class="primary action" type="button">Confirm inventory</button><button id="checkButton" class="quiet action" type="button" hidden>Check saved result</button>
           </section>
-          <section class="card" aria-labelledby="savedTitle"><div class="card-head"><div><h2 id="savedTitle">Saved pantry</h2><p id="savedRevision" class="muted small">Waiting for local state</p></div><span id="savedCount" class="pill">â€”</span></div><div id="savedEmpty" class="empty">Loadingâ€¦</div><ul id="savedItems" class="state-list"></ul><div id="receipt" class="receipt small" tabindex="-1" hidden></div><button id="reloadButton" class="quiet small" type="button">Refresh saved state</button></section>
+          <section class="card" aria-labelledby="savedTitle"><div class="card-head"><div><h2 id="savedTitle">Saved pantry</h2><p id="savedRevision" class="muted small">Waiting for local state</p></div><span id="savedCount" class="pill">-</span></div><div id="savedEmpty" class="empty">Loading…</div><ul id="savedItems" class="state-list"></ul><div id="receipt" class="receipt small" tabindex="-1" hidden></div><button id="reloadButton" class="quiet small" type="button">Refresh saved state</button></section>
         </div>
       </div>
-      <section id="planSection" class="card plan" aria-labelledby="planTitle" aria-busy="false"><div class="plan-head"><div><p class="eyebrow">Make something with it</p><h2 id="planTitle">Choose dinner. Check the list.</h2><p class="muted small" style="margin:6px 0 0">Based on the saved pantry, not the draft. Choices only change this preview.</p></div><span class="pill">Muse Spark proposes Â· Hearth checks</span></div><p id="planStatus" class="muted" role="status" aria-live="polite" aria-atomic="true">Loading dinner preview.</p><fieldset class="dinner-options"><legend>Include either or both dinners</legend><div id="dinners" class="dinners"></div></fieldset><div id="shoppingWrap" hidden><h3>Shopping preview</h3><p id="shoppingSummary" class="muted small"></p><table class="shopping"><caption class="sr-only">Ingredients required by the selected dinners, compared with recorded pantry amounts</caption><thead><tr><th scope="col">Ingredient</th><th scope="col">Required</th><th scope="col">Recorded</th><th scope="col">Next step</th></tr></thead><tbody id="shoppingRows"></tbody></table></div><div class="toolbar"><button id="reviewListButton" type="button" disabled>Review shopping list to save</button></div><p id="qualification" class="plan-note">Muse Spark proposes dinners. Hearth recomputes every amount from saved stock. No purchase is made.</p></section>
+      <section id="planSection" class="card plan" aria-labelledby="planTitle" aria-busy="false"><div class="plan-head"><div><p class="eyebrow">Make something with it</p><h2 id="planTitle">Choose dinner. Check the list.</h2><p class="muted small" style="margin:6px 0 0">Based on the saved pantry, not the draft. Choices only change this preview.</p></div><span class="pill">Muse Spark proposes · Hearth checks</span></div><p id="planStatus" class="muted" role="status" aria-live="polite" aria-atomic="true">Loading dinner preview.</p><fieldset class="dinner-options"><legend>Include either or both dinners</legend><div id="dinners" class="dinners"></div></fieldset><div id="shoppingWrap" hidden><h3>Shopping preview</h3><p id="shoppingSummary" class="muted small"></p><table class="shopping"><caption class="sr-only">Ingredients required by the selected dinners, compared with recorded pantry amounts</caption><thead><tr><th scope="col">Ingredient</th><th scope="col">Required</th><th scope="col">Recorded</th><th scope="col">Next step</th></tr></thead><tbody id="shoppingRows"></tbody></table></div><div class="toolbar"><button id="reviewListButton" type="button" disabled>Review shopping list to save</button></div><p id="qualification" class="plan-note">Muse Spark proposes dinners. Hearth recomputes every amount from saved stock. No purchase is made.</p></section>
       <section id="listReviewCard" class="card review plan" aria-labelledby="listReviewTitle" hidden><p class="eyebrow">Save a checklist, not an order</p><h2 id="listReviewTitle" tabindex="-1">Review this shopping list</h2><p id="listExpiry" class="muted small"></p><p id="listReviewSummary"></p><ul id="listReviewRows" class="preview-list"></ul><p class="muted small">Uncertain pantry amounts remain checks. This saves a local checklist only: it does not change stock, order food or authorize an external action.</p><button id="saveListButton" class="primary" type="button">Save this shopping list</button><button id="checkListButton" type="button" hidden>Check shopping-list save</button></section>
       <section class="card plan" aria-labelledby="savedListTitle"><h2 id="savedListTitle">Saved shopping list</h2><p id="savedListStatus" class="muted small">No list verified yet.</p><ul id="savedListRows" class="preview-list"></ul><div id="listReceipt" class="receipt small" tabindex="-1" hidden></div><p id="listMessage" role="status" aria-live="polite"></p></section>
     </main>
-    <footer class="footer">Hearth Â· built for the Meta Global AI Developer Hackathon Â· demo household is fictional Â· confirmations save only the reviewed pantry or checklist. No order is placed.</footer>
+    <footer class="footer">Hearth · built for the Meta Global AI Developer Hackathon · your pantry stays on this server · confirmations save only the reviewed pantry or checklist. No order is placed.</footer>
   </div>
   <script>
     'use strict';
@@ -86,7 +86,7 @@
     function element(tag, text, className) { const node=document.createElement(tag); if(text!==undefined)node.textContent=text; if(className)node.className=className; return node; }
     function validItems(items) { return Array.isArray(items)&&items.every(item=>item&&typeof item.name==='string'&&(item.quantity===null||typeof item.quantity==='string')&&['g','ml','each'].includes(item.unit)); }
     function say(text, kind='') { $('message').textContent=text; $('message').className='notice'+(kind?' '+kind:''); }
-    function amount(item) { return item.quantity===null?'Amount unknown Â· '+item.unit:item.quantity+' '+item.unit; }
+    function amount(item) { return item.quantity===null?'Amount unknown · '+item.unit:item.quantity+' '+item.unit; }
     function dateLabel(value) { const date=new Date(value); return Number.isFinite(date.getTime())?new Intl.DateTimeFormat(undefined,{hour:'numeric',minute:'2-digit',second:'2-digit'}).format(date):'unknown time'; }
     async function api(url, options={}) {
       let response;
@@ -107,7 +107,7 @@
       const expired=preview && (!Number.isFinite(Date.parse(preview.expires_at))||Date.now()>=Date.parse(preview.expires_at));
       const stale=preview&&saved&&preview.expected_revision!==saved.revision;
       $('confirmButton').disabled=busy||shoppingSaveUncertain||!preview||(!uncertain&&(expired||stale));
-      $('confirmButton').textContent=busy?'Savingâ€¦':uncertain?'Retry same confirmation':stale?'Saved stock changed':expired?'Preview expired':'Confirm inventory';
+      $('confirmButton').textContent=busy?'Saving…':uncertain?'Retry same confirmation':stale?'Saved stock changed':expired?'Preview expired':'Confirm inventory';
       $('checkButton').hidden=!uncertain;
       $('checkButton').disabled=busy;
       $('draftBadge').textContent=uncertain?'Checking save':dirty?'Unsaved draft':'Draft';
@@ -133,21 +133,21 @@
         const unit=document.createElement('select');unit.setAttribute('aria-label','Unit for row '+(index+1));
         for(const value of ['g','ml','each']){const option=element('option',value);option.value=value;unit.append(option);}unit.value=item.unit;
         unit.addEventListener('change',()=>{item.unit=unit.value;edited();});
-        const remove=element('button','Ã-','remove danger');remove.type='button';remove.setAttribute('aria-label','Remove ingredient row '+(index+1));remove.addEventListener('click',()=>{draft.splice(index,1);edited();renderDraft();$('addButton').focus();});
+        const remove=element('button','×','remove danger');remove.type='button';remove.setAttribute('aria-label','Remove ingredient row '+(index+1));remove.addEventListener('click',()=>{draft.splice(index,1);edited();renderDraft();$('addButton').focus();});
         row.append(name,quantity,unit,remove);$('candidateRows').append(row);
       });
       controls();
     }
     function renderReceipt(receipt,replayed=false) {
       const box=$('receipt');box.replaceChildren();box.hidden=false;
-      box.append(element('strong',replayed?'Already saved â€” original receipt':'Inventory saved'));
-      box.append(element('p','Revision '+receipt.from_revision+' â†’ '+receipt.to_revision+' Â· '+dateLabel(receipt.confirmed_at),'muted small'));
+      box.append(element('strong',replayed?'Already saved - original receipt':'Inventory saved'));
+      box.append(element('p','Revision '+receipt.from_revision+' → '+receipt.to_revision+' · '+dateLabel(receipt.confirmed_at),'muted small'));
       box.append(element('span','Receipt '),element('code',receipt.id));
     }
     function renderSaved() {
       $('savedRevision').textContent='Confirmed revision '+saved.revision;
       $('savedCount').textContent=saved.items.length+' item'+(saved.items.length===1?'':'s');
-      $('savedItems').replaceChildren();$('savedEmpty').hidden=saved.items.length>0;$('savedEmpty').textContent='No pantry items saved yet. Load the fictional example to try the workflow.';
+      $('savedItems').replaceChildren();$('savedEmpty').hidden=saved.items.length>0;$('savedEmpty').textContent='No pantry saved yet. Scan your fridge or load the sample pantry to start.';
       for(const item of saved.items){const li=element('li');li.append(element('span',item.name),element('span',amount(item),'amount'+(item.quantity===null?' unknown':'')));$('savedItems').append(li);}
       if(saved.receipts?.length){const latest=[...saved.receipts].sort((a,b)=>b.to_revision-a.to_revision)[0];renderReceipt(latest);}
     }
@@ -174,7 +174,7 @@
       if(!$('diff').childElementCount)$('diff').append(element('p','No item changes compared with saved stock.'));
       $('reviewCard').hidden=false;tick();$('reviewTitle').focus();controls();
     }
-    function tick(){if(shoppingPreview){$('listExpiry').textContent='Pantry revision '+shoppingPreview.inventory_revision+' Â· replaces list revision '+shoppingPreview.expected_list_revision+' Â· expires '+dateLabel(shoppingPreview.expires_at);controls();}if(!preview)return;const seconds=Math.ceil((Date.parse(preview.expires_at)-Date.now())/1000);$('expiry').textContent=!uncertain&&saved&&preview.expected_revision!==saved.revision?'Saved stock changed. Review the draft again.':Number.isFinite(seconds)&&seconds>0?'Revision '+preview.expected_revision+' Â· expires in '+Math.floor(seconds/60)+':'+String(seconds%60).padStart(2,'0'):'Preview expired. Review the draft again.';controls();}
+    function tick(){if(shoppingPreview){$('listExpiry').textContent='Pantry revision '+shoppingPreview.inventory_revision+' · replaces list revision '+shoppingPreview.expected_list_revision+' · expires '+dateLabel(shoppingPreview.expires_at);controls();}if(!preview)return;const seconds=Math.ceil((Date.parse(preview.expires_at)-Date.now())/1000);$('expiry').textContent=!uncertain&&saved&&preview.expected_revision!==saved.revision?'Saved stock changed. Review the draft again.':Number.isFinite(seconds)&&seconds>0?'Revision '+preview.expected_revision+' · expires in '+Math.floor(seconds/60)+':'+String(seconds%60).padStart(2,'0'):'Preview expired. Review the draft again.';controls();}
     function clearPlan(message) {
       planRequest++;planRevision=null;lastPlan=null;if(!shoppingSaveUncertain)clearShoppingPreview();
       $('planStatus').textContent=message;$('shoppingRows').replaceChildren();$('shoppingWrap').hidden=true;
@@ -232,7 +232,7 @@
       }
       $('shoppingSummary').textContent=plan.selected_dinner_ids.length?'Shared ingredients are combined once across the selected dinners. Not recorded does not mean absent from the physical pantry.':'No dinners selected. Select a dinner to calculate its shopping preview.';
       $('shoppingWrap').hidden=false;
-      $('planStatus').textContent='Saved revision '+plan.revision+' Â· '+plan.selected_dinner_ids.length+' dinner'+(plan.selected_dinner_ids.length===1?'':'s')+' selected Â· '+(plan.mode==='meta_proposal'?'proposed by Muse Spark, checked by Hearth':'local example dinners');
+      $('planStatus').textContent='Saved revision '+plan.revision+' · '+plan.selected_dinner_ids.length+' dinner'+(plan.selected_dinner_ids.length===1?'':'s')+' selected · '+(plan.mode==='meta_proposal'?'proposed by Muse Spark, checked by Hearth':'local example dinners');
       planRevision=plan.revision;lastPlan=JSON.parse(JSON.stringify(plan));controls();
       if(focusId)document.getElementById(focusId)?.focus();
     }
@@ -293,20 +293,20 @@
       const receipt=saved.shopping_list;
       if(!receipt){$('savedListStatus').textContent='No shopping list saved. Review the dinner preview to save a local checklist.';return;}
       const stale=receipt.inventory_revision!==saved.revision;const recipeChanged=saved.recipe_hash&&receipt.list.recipe_hash!==saved.recipe_hash;
-      $('savedListStatus').textContent='List revision '+receipt.to_list_revision+' Â· based on pantry revision '+receipt.inventory_revision+(stale||recipeChanged?' Â· pantry or recipe source changed; review a fresh list before using amounts.':' Â· matches the current saved pantry and reviewed recipe source.')+' No stock or order changed.';
+      $('savedListStatus').textContent='List revision '+receipt.to_list_revision+' · based on pantry revision '+receipt.inventory_revision+(stale||recipeChanged?' · pantry or recipe source changed; review a fresh list before using amounts.':' · matches the current saved pantry and reviewed recipe source.')+' No stock or order changed.';
       listRows($('savedListRows'),receipt.list);
     }
     function renderListReceipt(receipt,replayed) {
       const box=$('listReceipt');box.replaceChildren();box.hidden=false;
-      box.append(element('strong',replayed?'Original shopping-list receipt recovered':'Shopping list saved locally'));
-      box.append(element('p','List revision '+receipt.from_list_revision+' â†’ '+receipt.to_list_revision+' Â· pantry revision '+receipt.inventory_revision+' Â· '+dateLabel(receipt.confirmed_at),'muted small'));
+      box.append(element('strong',replayed?'Original shopping-list receipt recovered':'Shopping list saved'));
+      box.append(element('p','List revision '+receipt.from_list_revision+' → '+receipt.to_list_revision+' · pantry revision '+receipt.inventory_revision+' · '+dateLabel(receipt.confirmed_at),'muted small'));
       box.append(element('span','Receipt '),element('code',receipt.id));
     }
     async function finishListSave(data) {
       const receipt=data?.receipt;
       if(!await validListReceipt(receipt)||receipt.preview_id!==shoppingPreview?.id||receipt.content_hash!==shoppingPreview?.content_hash){const error=new Error('The shopping-list receipt could not be verified.');error.uncertain=true;throw error;}
       shoppingSaveUncertain=false;clearShoppingPreview();renderListReceipt(receipt,!!data.replayed);
-      $('listMessage').textContent=data.replayed?'Original receipt recovered. The current saved list is read separately; no new list was created.':'Checklist saved locally. Pantry stock and purchases are unchanged.';
+      $('listMessage').textContent=data.replayed?'Original receipt recovered. The current saved list is read separately; no new list was created.':'Shopping list saved. Your pantry and purchases are unchanged.';
       try{await refreshState();await loadPlan();}catch(_){clearPlan('Saved pantry could not be verified. Refresh saved state before planning.');$('savedListStatus').textContent='Save receipt confirmed; the current list could not be refreshed. Use Refresh saved state.';}
       $('listReceipt').focus();
     }
@@ -366,7 +366,7 @@
       catch(error){say(error.message+' Keep this preview and retry the same confirmation when available.','warning');}
       finally{busy=false;controls();}
     });
-    $('exampleButton').addEventListener('click',()=>{draft=example();dirty=true;clearPreview();renderDraft();say('Fictional ingredients loaded into the draft only. Correct them, then review changes.');});
+    $('exampleButton').addEventListener('click',()=>{draft=example();dirty=true;clearPreview();renderDraft();say('Sample pantry loaded into the draft. Correct it, then review changes.');});
     $('savedButton').addEventListener('click',()=>{draft=saved.items.map(item=>({...item}));dirty=false;clearPreview();renderDraft();say('Draft reset to the last confirmed pantry.');});
     $('addButton').addEventListener('click',()=>{draft.push({name:'',quantity:null,unit:'g'});edited();renderDraft();$('candidateRows').lastElementChild?.querySelector('input').focus();});
     $('reloadButton').addEventListener('click',async()=>{if(busy)return;busy=true;controls();try{await refreshState({replaceDraft:saved===null});if(!uncertain&&!shoppingSaveUncertain)await loadPlan();say(uncertain?'Saved state refreshed. Resolve the pending confirmation using its same ID.':'Saved state refreshed. Unsaved draft changes are retained.');}catch(error){clearPlan('Saved pantry could not be verified. Refresh saved state before planning.');say(error.message,'error');}finally{busy=false;controls();}});
@@ -392,7 +392,7 @@
       const file=$('scanInput').files[0];if(!file)return;$('scanInput').value='';
       if(busy||uncertain){say('Finish the pending save first.');return;}
       const isVideo=file.type.startsWith('video/');
-      $('scanStatus').textContent=isVideo?'Muse Spark is watching the clip, then SAM 3.1 is tracking each item across frames. This takes about a minuteâ€¦':'Muse Spark is reading the photo, then SAM 3.1 is checking each itemâ€¦';
+      $('scanStatus').textContent=isVideo?'Muse Spark is watching the clip, then SAM 3.1 is tracking each item across frames. This takes about a minute…':'Muse Spark is reading the photo, then SAM 3.1 is checking each item…';
       const img=new Image();img.src=URL.createObjectURL(file);
       try{
         const result=await postRaw('/api/ai/scan',file,file.type);
@@ -405,11 +405,11 @@
     });
     function speak(text){try{if(!('speechSynthesis' in window)||!text)return;speechSynthesis.cancel();const u=new SpeechSynthesisUtterance(text);u.rate=1.02;speechSynthesis.speak(u);}catch(_){}}
     async function planDinners(request){
-      if(busy||uncertain)return;$('askButton').disabled=true;$('askStatus').textContent='Muse Spark is planning against your confirmed pantryâ€¦';
+      if(busy||uncertain)return;$('askButton').disabled=true;$('askStatus').textContent='Muse Spark is planning against your confirmed pantry…';
       try{
         const result=await api('/api/ai/plan',{method:'POST',body:JSON.stringify({request})});
         $('answer').replaceChildren(element('span',result.spoken_answer+' '),element('strong',result.hearth_check||''));$('answer').hidden=false;speak(result.spoken_answer+' '+(result.hearth_check||''));
-        $('assumptions').replaceChildren(...(result.assumptions||[]).map(a=>element('li','Assumed: '+a)));
+        $('assumptions').replaceChildren(...(result.assumptions||[]).map(a=>element('li','Assumed: '+String(a).replace(/^assum(ed|ing|es)?:?\s*(that\s+)?/i,''))));
         $('askStatus').textContent='Two dinners proposed by Muse Spark. Hearth recomputed the shopping list from saved stock'+(result.pantry_flags_corrected?' and corrected '+result.pantry_flags_corrected+' pantry claims.':'.');
         dinnerIds=null;await loadPlan();$('planSection').scrollIntoView({behavior:'smooth',block:'start'});
       }catch(error){$('askStatus').textContent='Planning failed: '+error.message;}
@@ -428,7 +428,7 @@
     let recorder=null,chunks=[];
     async function startMic(){
       if(recorder)return;try{const stream=await navigator.mediaDevices.getUserMedia({audio:true});chunks=[];recorder=new MediaRecorder(stream);
-        recorder.ondataavailable=e=>chunks.push(e.data);recorder.start();$('micButton').textContent='Listeningâ€¦ release to send';}
+        recorder.ondataavailable=e=>chunks.push(e.data);recorder.start();$('micButton').textContent='Listening… release to send';}
       catch(_){$('askStatus').textContent='Microphone unavailable. Type your question instead.';}
     }
     async function stopMic(){
@@ -437,7 +437,7 @@
       try{
         const decoded=await new AudioContext().decodeAudioData(await new Blob(chunks).arrayBuffer());
         const off=new OfflineAudioContext(1,Math.ceil(decoded.duration*16000),16000);const src=off.createBufferSource();src.buffer=decoded;src.connect(off.destination);src.start();
-        const wav=wavFrom(await off.startRendering());$('askStatus').textContent='Muse Voice Transcribe is listeningâ€¦';
+        const wav=wavFrom(await off.startRendering());$('askStatus').textContent='Muse Voice Transcribe is listening…';
         const heard=await postRaw('/api/ai/transcribe',wav,'audio/wav');$('askText').value=heard.transcript;
         if(heard.transcript.trim())await planDinners(heard.transcript);else $('askStatus').textContent='Nothing heard. Try again.';
       }catch(error){$('askStatus').textContent='Voice failed: '+error.message;}
@@ -447,7 +447,7 @@
       $('micButton').addEventListener(up,e=>{if(e.type==='keyup'&&e.key!==' ')return;e.preventDefault();stopMic();});
     }
     $('micButton').addEventListener('pointerleave',()=>stopMic());
-    async function start(){busy=true;controls();try{await refreshState({replaceDraft:true});await loadPlan();say('Local pantry loaded. Draft changes stay separate until you review and confirm.');}catch(error){say(error.message+' Use Refresh saved state to reconnect.','error');$('savedEmpty').textContent='Saved stock could not be loaded.';$('planStatus').textContent='Waiting for verified saved state.';}finally{busy=false;controls();}}
+    async function start(){busy=true;controls();try{await refreshState({replaceDraft:true});await loadPlan();say('Pantry loaded. Draft changes stay separate until you review and confirm.');}catch(error){say(error.message+' Use Refresh saved state to reconnect.','error');$('savedEmpty').textContent='Saved stock could not be loaded.';$('planStatus').textContent='Waiting for verified saved state.';}finally{busy=false;controls();}}
     setInterval(tick,1000);start();
   </script>
 </body>

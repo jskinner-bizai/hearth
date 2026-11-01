@@ -231,7 +231,7 @@ class Store:
         return {"action": "save_shopping_list", "inventory_revision": plan["revision"],
                 "selected_dinner_ids": plan["selected_dinner_ids"], "shopping": plan["shopping"],
                 "recipe_hash": plan["recipe_hash"], "mode": plan["mode"],
-                "qualification": "Saved fictional shopping checklist only. Unknown stock, quantities and units remain checks. "
+                "qualification": "Saved shopping checklist. Unknown stock, quantities and units remain checks. "
                                  "This does not change pantry stock, place an order or authorize any external action."}
 
     def preview_shopping_list(self, expected_revision, dinner_ids, expected_list_revision):

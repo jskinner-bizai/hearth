@@ -48,19 +48,29 @@ def data_url(raw, mime):
 
 # ---------------------------------------------------------------- Muse Spark
 
-def spark_json(system, user_content, schema_name, schema, temperature=0.2, max_tokens=4000):
-    """Chat Completions with constrained JSON output. user_content is a string or content-part list."""
+def spark_json(system, user_content, schema_name, schema, temperature=0.2, max_tokens=16000,
+               reasoning_effort="low"):
+    """Chat Completions with constrained JSON output. user_content is a string or content-part list.
+
+    Spark spends part of max_tokens on reasoning, so the budget is generous and effort is kept low for
+    interactive calls. A truncated or unreadable answer is retried once before giving up.
+    """
     body = {"model": SPARK, "temperature": temperature, "max_tokens": max_tokens,
+            "reasoning_effort": reasoning_effort,
             "messages": [{"role": "system", "content": system}, {"role": "user", "content": user_content}],
             "response_format": {"type": "json_schema", "json_schema": {
                 "name": schema_name, "schema": schema, "strict": True}}}
-    raw = _post("/chat/completions", json.dumps(body).encode())
-    try:
-        data = json.loads(raw)
-        content = data["choices"][0]["message"]["content"]
-        return json.loads(content), data.get("usage", {})
-    except (KeyError, IndexError, ValueError, TypeError):
-        raise MetaError("spark_bad_output", "Muse Spark returned output Hearth could not read.")
+    last = "unknown"
+    for _ in range(2):
+        raw = _post("/chat/completions", json.dumps(body).encode())
+        try:
+            data = json.loads(raw)
+            choice = data["choices"][0]
+            last = choice.get("finish_reason", "unknown")
+            return json.loads(choice["message"]["content"]), data.get("usage", {})
+        except (KeyError, IndexError, ValueError, TypeError):
+            continue
+    raise MetaError("spark_bad_output", "Muse Spark returned output Hearth could not read (finish: %s)." % last)
 
 
 def image_part(raw, mime):
