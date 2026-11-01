@@ -8,6 +8,7 @@ import threading
 import time
 import json
 import sqlite3
+import sys
 from hearth import Store, HearthError
 import agents
 import meta_client
@@ -165,12 +166,18 @@ def make_handler(store):
             except HearthError as error:
                 self._error(error)
             except meta_client.MetaError as error:
+                print(f"{time.strftime('%H:%M:%S')} meta error {error.status} {error.code}: {error.message}", file=sys.stderr, flush=True)
                 self._send(error.status, {"error": {"code": error.code, "message": error.message}})
             except sqlite3.Error:
                 if urlsplit(self.path).path == "/api/plan":
                     self._error(HearthError("local_read_failed", "The saved pantry could not be read. Refresh it before planning.", 503))
                 else:
                     self._error(HearthError("local_save_failed", "Local save failed. Check state, then retry the same preview.", 503))
+            except Exception:
+                import traceback
+                traceback.print_exc()
+                sys.stderr.flush()
+                self._error(HearthError("unexpected", "Something went wrong on Hearth's side. Try that again.", 500))
 
         def log_message(self, *_):
             pass
