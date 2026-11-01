@@ -1,0 +1,454 @@
+﻿<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="color-scheme" content="light">
+  <title>Hearth Â· A little less dinner admin</title>
+  <style>
+    :root{--paper:#f6f4ee;--card:#fffefb;--ink:#243d34;--muted:#596b61;--line:#d9dfd4;--green:#234f3d;--light:#eaf0e6;--amber:#76501c;--amber-bg:#fff3db;--red:#8e3e32;--radius:20px}
+    *{box-sizing:border-box}body{margin:0;background:var(--paper);color:var(--ink);font:16px/1.5 system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}button,input,select{font:inherit}button{cursor:pointer}button:disabled{cursor:default;opacity:.53}a{color:var(--green)}button:focus-visible,input:focus-visible,select:focus-visible,a:focus-visible{outline:3px solid #b76f30;outline-offset:3px}button,input,select{min-height:44px}button{border:1px solid var(--line);border-radius:12px;background:var(--card);color:var(--ink);padding:10px 15px;font-weight:650}button:hover:enabled{background:var(--light)}button.primary{background:var(--green);color:white;border-color:var(--green)}button.primary:hover:enabled{background:#183c2d}.quiet{background:transparent}.danger{color:var(--red)}input,select{width:100%;border:1px solid #acb9aa;border-radius:10px;background:white;color:var(--ink);padding:9px 10px}input::placeholder{color:#68756c}h1,h2,h3,p{margin-top:0}h1{font-size:clamp(2rem,5vw,3.25rem);line-height:1.1;letter-spacing:-.045em;margin-bottom:16px;max-width:690px}h2{font-size:1.25rem;letter-spacing:-.02em;margin-bottom:6px}h3{font-size:1.05rem;margin-bottom:8px}p{margin-bottom:12px}.muted{color:var(--muted)}.small{font-size:.875rem}.eyebrow{text-transform:uppercase;letter-spacing:.14em;font-weight:750;font-size:.72rem;color:var(--muted)}.wrap{max-width:1160px;margin:auto;padding:0 28px}.topbar{display:flex;justify-content:space-between;gap:16px;align-items:center;padding:26px 0}.brand{display:flex;align-items:center;gap:10px;font-size:1.5rem;font-weight:750;letter-spacing:-.04em}.mark{display:grid;place-items:center;width:35px;height:35px;background:var(--green);color:#ffe7bf;border-radius:12px;font-size:24px;line-height:1}.badge{border:1px solid #c7d4c1;border-radius:99px;padding:7px 12px;background:var(--light);font-size:.78rem;font-weight:650}.hero{padding:36px 0 30px}.hero p{max-width:660px;font-size:1.06rem}.steps{display:flex;flex-wrap:wrap;gap:10px;margin:22px 0 0;padding:0;list-style:none}.steps li{display:flex;align-items:center;gap:7px;font-size:.82rem;color:var(--muted)}.stepnum{border:1px solid #adbda7;border-radius:50%;width:23px;height:23px;display:grid;place-items:center;font-size:.73rem;background:#fff}.layout{display:grid;grid-template-columns:minmax(0,1.35fr) minmax(280px,1fr);gap:20px;align-items:start}.card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:24px;min-width:0}.card-head{display:flex;align-items:flex-start;justify-content:space-between;gap:14px;margin-bottom:18px}.card-head p{margin:0}.pill{white-space:nowrap;font-size:.75rem;background:var(--light);padding:4px 9px;border-radius:8px;font-weight:650}.draft-pill{background:var(--amber-bg);color:var(--amber)}.toolbar{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:18px}.candidate-head,.candidate-row{display:grid;grid-template-columns:minmax(100px,1fr) minmax(72px,.6fr) 78px 44px;gap:8px;align-items:start}.candidate-head{font-size:.75rem;color:var(--muted);font-weight:650;padding:0 1px 6px}.candidate-row{margin-bottom:9px}.remove{padding:8px;width:44px;font-size:20px;line-height:1}.form-foot{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:12px;margin-top:18px;padding-top:18px;border-top:1px solid var(--line)}.hint{max-width:430px}.notice{padding:13px 15px;border-radius:12px;background:var(--light);margin:16px 0}.notice.error{background:#f9e8e2;color:#7c322a}.notice.warning{background:var(--amber-bg);color:var(--amber)}.notice p:last-child{margin:0}.state-list,.preview-list{list-style:none;padding:0;margin:14px 0}.state-list li,.preview-list li{display:flex;justify-content:space-between;gap:12px;padding:9px 0;border-bottom:1px solid #edf0e8;overflow-wrap:anywhere}.state-list li:last-child,.preview-list li:last-child{border-bottom:0}.amount{color:var(--muted);text-align:right}.unknown{color:var(--amber);font-weight:650}.empty{padding:20px 0;color:var(--muted)}.aside{display:grid;gap:20px}.review{border:1.5px solid #a8b99f}.review[hidden],*[hidden]{display:none!important}.review .action{width:100%;margin-top:10px}.changes{font-size:.86rem;color:var(--muted)}.changes strong{color:var(--ink)}.receipt{border-left:3px solid var(--green);padding-left:13px;margin-top:18px}.receipt code{font-size:.72rem;overflow-wrap:anywhere}.plan{margin:20px 0 40px}.plan-head{display:flex;justify-content:space-between;align-items:start;gap:16px;margin-bottom:20px}.dinners{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:20px 0}.dinner{background:#eef1e7;border:1px solid #dbe1d1;border-radius:14px;padding:18px}.dinner .eyebrow{margin-bottom:8px}.dinner p{font-size:.88rem;margin-bottom:0}.shopping{width:100%;border-collapse:collapse;font-size:.9rem}.shopping th{text-align:left;font-size:.75rem;text-transform:uppercase;letter-spacing:.05em;color:var(--muted);padding:10px 8px;border-bottom:1px solid var(--line)}.shopping td{padding:12px 8px;border-bottom:1px solid #edf0e8;vertical-align:top;overflow-wrap:anywhere}.shopping th:first-child,.shopping td:first-child{padding-left:0}.shopping th:last-child,.shopping td:last-child{padding-right:0}.status-label{font-weight:650}.plan-note{font-size:.82rem;color:var(--muted);margin:16px 0 0}.footer{font-size:.8rem;color:var(--muted);padding-bottom:32px;border-top:1px solid var(--line);padding-top:18px}.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}.skip{position:absolute;top:-60px;left:12px;background:white;padding:10px;z-index:5}.skip:focus{top:10px}#message{scroll-margin-top:20px}#reviewTitle:focus,#receipt:focus{outline:none}
+    @media(max-width:760px){.wrap{padding:0 18px}.hero{padding-top:20px}.layout{grid-template-columns:1fr}.topbar{align-items:flex-start;padding:20px 0}.badge{font-size:.7rem;max-width:170px;text-align:center}.card{padding:20px}.hero p{font-size:1rem}.steps{gap:8px 16px}.dinners{grid-template-columns:1fr}.plan-head{display:block}.plan-head .pill{display:inline-block;margin-top:8px}.shopping{font-size:.82rem}.shopping th,.shopping td{padding-left:6px;padding-right:6px}.shopping th{font-size:.67rem}.candidate-head,.candidate-row{grid-template-columns:minmax(95px,1fr) 76px 72px 40px;gap:6px}.remove{width:40px;padding:8px 5px}.form-foot .primary{width:100%}.form-foot{align-items:stretch}.card-head{gap:8px}.card-head .pill{font-size:.68rem}}
+    .dinner-options{border:0;padding:0;margin:0;min-width:0}.dinner-options legend{font-weight:650}.dinner-choice{display:flex;align-items:center;gap:10px;min-height:44px;font-weight:700;cursor:pointer;margin-bottom:10px}.dinner-choice input{width:22px;height:22px;min-height:22px;flex:none;accent-color:var(--green)}.dinner-details{padding-left:18px;margin:12px 0 0;font-size:.82rem}.dinner-details li{margin:8px 0;overflow-wrap:anywhere}.dinner .dinner-status{margin-top:12px;font-weight:650}.shopping .ingredient-source{display:block;text-transform:none;letter-spacing:0;font-weight:400;font-size:.78rem;margin-top:4px}.shopping td{overflow-wrap:anywhere}.plan[aria-busy="true"] .dinner-status{color:var(--muted)}
+    @media(max-width:600px){.shopping,.shopping tbody{display:block}.shopping thead{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap}.shopping tr{display:block;padding:12px 0;border-bottom:1px solid var(--line)}.shopping th[scope="row"]{display:block;padding:0 0 8px;border:0;font-size:.86rem}.shopping td{display:grid;grid-template-columns:72px minmax(0,1fr);gap:10px;padding:4px 0!important;border:0}.shopping td::before{content:attr(data-label);font-weight:650;color:var(--muted)}}
+    @media(max-width:380px){.wrap{padding:0 12px}.card{padding:16px}.candidate-head,.candidate-row{grid-template-columns:minmax(82px,1fr) 66px 63px 36px;gap:5px}.candidate-row input,.candidate-row select{padding-left:7px;padding-right:5px;font-size:.86rem}.remove{width:36px}.topbar{gap:10px}.badge{max-width:150px}.brand{font-size:1.35rem}.card-head{flex-wrap:wrap}}
+    @media(prefers-reduced-motion:no-preference){button{transition:background .12s ease}}
+  .ask-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px}@media(max-width:760px){.ask-grid{grid-template-columns:1fr}}
+.filebtn{display:inline-block;cursor:pointer;padding:10px 16px;border-radius:10px}.scan-stage canvas{max-width:100%;border-radius:10px;margin-top:10px}
+.answer{margin:12px 0;padding:12px 14px;border-left:3px solid currentColor;font-size:1.05rem}#askText{flex:1;min-width:0}
+.why{font-style:italic;margin:4px 0}.flag{color:#b45309}
+</style>
+</head>
+<body>
+  <a class="skip" href="#pantryTitle">Skip to pantry</a>
+  <div class="wrap">
+    <header class="topbar"><div class="brand"><span class="mark" aria-hidden="true">âŒ‚</span>Hearth</div><div class="badge">Muse Spark Â· SAM 3.1 Â· Muse Voice Transcribe</div></header>
+    <main>
+      <section class="hero" aria-labelledby="pageTitle"><p class="eyebrow">A little less dinner admin</p><h1 id="pageTitle">Start with whatâ€™s<br>actually in the pantry.</h1><p class="muted">Correct the list, review the changes, then save. Hearth uses that confirmed pantry for a simple two-dinner preview.</p><ol class="steps" aria-label="Pantry workflow"><li><span class="stepnum">1</span>Correct your draft</li><li><span class="stepnum">2</span>Review &amp; confirm</li><li><span class="stepnum">3</span>See dinner options</li></ol></section>
+      <section class="card ask" aria-labelledby="askTitle">
+        <div class="card-head"><div><p class="eyebrow">Look, listen, propose</p><h2 id="askTitle">Show Hearth the fridge. Ask about dinner.</h2>
+        <p class="muted small">Meta models only draft. You review every change before it is saved.</p></div></div>
+        <div class="ask-grid">
+          <div>
+            <label class="filebtn" for="scanInput" style="background:#1f4d3a;color:#fff;font-weight:600">Scan a photo or pan video</label>
+            <input id="scanInput" type="file" accept="image/jpeg,image/png,image/webp,video/mp4,video/quicktime" hidden>
+            <p id="scanStatus" class="muted small" role="status" aria-live="polite">Take a photo or pan your phone across the fridge. Muse Spark lists what it sees; SAM 3.1 confirms each item and, in a video, tracks it so it is counted once.</p>
+            <div id="scanStage" class="scan-stage" hidden><canvas id="scanCanvas" aria-label="Photo with detected items outlined"></canvas></div>
+            <ul id="scanChecks" class="preview-list"></ul>
+          </div>
+          <div>
+            <div class="toolbar"><button id="micButton" type="button">Hold to ask</button>
+            <input id="askText" type="text" placeholder="What can we make tonight?" aria-label="Ask Hearth"><button id="askButton" class="primary" type="button">Plan dinners</button></div>
+            <p id="askStatus" class="muted small" role="status" aria-live="polite">Voice is transcribed by Muse Voice Transcribe, tuned to your own pantry words.</p>
+            <blockquote id="answer" class="answer" hidden></blockquote>
+            <ul id="assumptions" class="muted small"></ul>
+          </div>
+        </div>
+      </section>
+      <div id="message" class="notice" role="status" aria-live="polite" aria-atomic="true">Connecting to the local pantryâ€¦</div>
+      <div class="layout">
+        <section class="card" aria-labelledby="pantryTitle">
+          <div class="card-head"><div><h2 id="pantryTitle">Pantry draft</h2><p class="muted small">Nothing here changes saved stock until you confirm.</p></div><span id="draftBadge" class="pill draft-pill">Draft</span></div>
+          <div class="toolbar"><button id="exampleButton" type="button" disabled>Load fictional example</button><button id="savedButton" class="quiet" type="button" disabled>Use saved pantry</button></div>
+          <form id="pantryForm" novalidate>
+            <div class="candidate-head" aria-hidden="true"><span>Ingredient</span><span>Amount</span><span>Unit</span><span></span></div>
+            <div id="candidateRows"></div>
+            <button id="addButton" class="quiet" type="button" disabled>+ Add ingredient</button>
+            <p class="muted small hint" style="margin:14px 0 0">Leave the amount blank when youâ€™re unsure. Unknown stock will be flagged for checking.</p>
+            <div class="form-foot"><span id="draftRevision" class="muted small">Saved revision not loaded</span><button id="previewButton" class="primary" type="submit" disabled>Review pantry changes</button></div>
+          </form>
+        </section>
+        <div class="aside">
+          <section id="reviewCard" class="card review" aria-labelledby="reviewTitle" hidden>
+            <p class="eyebrow">Review before saving</p><h2 id="reviewTitle" tabindex="-1">Confirm this pantry</h2><p class="muted small">Only saves these pantry items locally.</p><div id="diff" class="changes"></div><ul id="previewItems" class="preview-list"></ul><p id="expiry" class="muted small"></p><button id="confirmButton" class="primary action" type="button">Confirm inventory</button><button id="checkButton" class="quiet action" type="button" hidden>Check saved result</button>
+          </section>
+          <section class="card" aria-labelledby="savedTitle"><div class="card-head"><div><h2 id="savedTitle">Saved pantry</h2><p id="savedRevision" class="muted small">Waiting for local state</p></div><span id="savedCount" class="pill">â€”</span></div><div id="savedEmpty" class="empty">Loadingâ€¦</div><ul id="savedItems" class="state-list"></ul><div id="receipt" class="receipt small" tabindex="-1" hidden></div><button id="reloadButton" class="quiet small" type="button">Refresh saved state</button></section>
+        </div>
+      </div>
+      <section id="planSection" class="card plan" aria-labelledby="planTitle" aria-busy="false"><div class="plan-head"><div><p class="eyebrow">Make something with it</p><h2 id="planTitle">Choose dinner. Check the list.</h2><p class="muted small" style="margin:6px 0 0">Based on the saved pantry, not the draft. Choices only change this preview.</p></div><span class="pill">Muse Spark proposes Â· Hearth checks</span></div><p id="planStatus" class="muted" role="status" aria-live="polite" aria-atomic="true">Loading dinner preview.</p><fieldset class="dinner-options"><legend>Include either or both dinners</legend><div id="dinners" class="dinners"></div></fieldset><div id="shoppingWrap" hidden><h3>Shopping preview</h3><p id="shoppingSummary" class="muted small"></p><table class="shopping"><caption class="sr-only">Ingredients required by the selected dinners, compared with recorded pantry amounts</caption><thead><tr><th scope="col">Ingredient</th><th scope="col">Required</th><th scope="col">Recorded</th><th scope="col">Next step</th></tr></thead><tbody id="shoppingRows"></tbody></table></div><div class="toolbar"><button id="reviewListButton" type="button" disabled>Review shopping list to save</button></div><p id="qualification" class="plan-note">Muse Spark proposes dinners. Hearth recomputes every amount from saved stock. No purchase is made.</p></section>
+      <section id="listReviewCard" class="card review plan" aria-labelledby="listReviewTitle" hidden><p class="eyebrow">Save a checklist, not an order</p><h2 id="listReviewTitle" tabindex="-1">Review this shopping list</h2><p id="listExpiry" class="muted small"></p><p id="listReviewSummary"></p><ul id="listReviewRows" class="preview-list"></ul><p class="muted small">Uncertain pantry amounts remain checks. This saves a local checklist only: it does not change stock, order food or authorize an external action.</p><button id="saveListButton" class="primary" type="button">Save this shopping list</button><button id="checkListButton" type="button" hidden>Check shopping-list save</button></section>
+      <section class="card plan" aria-labelledby="savedListTitle"><h2 id="savedListTitle">Saved shopping list</h2><p id="savedListStatus" class="muted small">No list verified yet.</p><ul id="savedListRows" class="preview-list"></ul><div id="listReceipt" class="receipt small" tabindex="-1" hidden></div><p id="listMessage" role="status" aria-live="polite"></p></section>
+    </main>
+    <footer class="footer">Hearth Â· built for the Meta Global AI Developer Hackathon Â· demo household is fictional Â· confirmations save only the reviewed pantry or checklist. No order is placed.</footer>
+  </div>
+  <script>
+    'use strict';
+    // Fresh private source created after the verified October 26 17:00 UTC gate.
+    const $ = id => document.getElementById(id);
+    let saved = null, draft = [], preview = null, busy = false, uncertain = false, dirty = false;
+    let dinnerIds = null;
+    let planRequest = 0, planRevision = null, lastPlan = null, shoppingPreview = null, shoppingSaveUncertain = false;
+    const example = () => [
+      {name:'pasta',quantity:'200',unit:'g'}, {name:'tomatoes',quantity:'400',unit:'g'},
+      {name:'beans',quantity:'240',unit:'g'}, {name:'rice',quantity:'150',unit:'g'},
+      {name:'spinach',quantity:null,unit:'g'}
+    ];
+    function element(tag, text, className) { const node=document.createElement(tag); if(text!==undefined)node.textContent=text; if(className)node.className=className; return node; }
+    function validItems(items) { return Array.isArray(items)&&items.every(item=>item&&typeof item.name==='string'&&(item.quantity===null||typeof item.quantity==='string')&&['g','ml','each'].includes(item.unit)); }
+    function say(text, kind='') { $('message').textContent=text; $('message').className='notice'+(kind?' '+kind:''); }
+    function amount(item) { return item.quantity===null?'Amount unknown Â· '+item.unit:item.quantity+' '+item.unit; }
+    function dateLabel(value) { const date=new Date(value); return Number.isFinite(date.getTime())?new Intl.DateTimeFormat(undefined,{hour:'numeric',minute:'2-digit',second:'2-digit'}).format(date):'unknown time'; }
+    async function api(url, options={}) {
+      let response;
+      try { response=await fetch(url,{cache:'no-store',...options,headers:{'Content-Type':'application/json',...(options.headers||{})}}); }
+      catch (_) { const error=new Error('The local server could not be reached.'); error.uncertain=true; throw error; }
+      let data;
+      try { data=await response.json(); } catch (_) { const error=new Error('The local server returned an unreadable response.'); error.uncertain=true; throw error; }
+      if(!response.ok) { const error=new Error(data.error?.message||'The local request failed.'); error.code=data.error?.code; error.status=response.status; error.uncertain=response.status>=500; throw error; }
+      return data;
+    }
+    function controls() {
+      const locked=busy||uncertain||shoppingSaveUncertain||saved===null;
+      for(const id of ['exampleButton','savedButton','addButton'])$(id).disabled=locked;
+      for(const input of $('candidateRows').querySelectorAll('input,select,button'))input.disabled=locked;
+      for(const input of $('dinners').querySelectorAll('input'))input.disabled=locked;
+      $('previewButton').disabled=locked;
+      $('reloadButton').disabled=busy;
+      const expired=preview && (!Number.isFinite(Date.parse(preview.expires_at))||Date.now()>=Date.parse(preview.expires_at));
+      const stale=preview&&saved&&preview.expected_revision!==saved.revision;
+      $('confirmButton').disabled=busy||shoppingSaveUncertain||!preview||(!uncertain&&(expired||stale));
+      $('confirmButton').textContent=busy?'Savingâ€¦':uncertain?'Retry same confirmation':stale?'Saved stock changed':expired?'Preview expired':'Confirm inventory';
+      $('checkButton').hidden=!uncertain;
+      $('checkButton').disabled=busy;
+      $('draftBadge').textContent=uncertain?'Checking save':dirty?'Unsaved draft':'Draft';
+      $('draftRevision').textContent=saved?'Review against saved revision '+saved.revision:'Saved revision not loaded';
+      const listExpired=shoppingPreview&&(!Number.isFinite(Date.parse(shoppingPreview.expires_at))||Date.now()>=Date.parse(shoppingPreview.expires_at));
+      const listStale=shoppingPreview&&saved&&(shoppingPreview.inventory_revision!==saved.revision||shoppingPreview.expected_list_revision!==saved.shopping_revision||(saved.recipe_hash&&shoppingPreview.list.recipe_hash!==saved.recipe_hash));
+      $('reviewListButton').disabled=locked||planRevision!==saved?.revision||!Number.isSafeInteger(saved?.shopping_revision);
+      $('saveListButton').disabled=busy||uncertain||!shoppingPreview||(!shoppingSaveUncertain&&(listExpired||listStale));
+      $('saveListButton').textContent=shoppingSaveUncertain?'Retry same list save':listStale?'Saved data changed':listExpired?'List preview expired':'Save this shopping list';
+      $('checkListButton').hidden=!shoppingSaveUncertain;$('checkListButton').disabled=busy;
+
+    }
+    function clearPreview() { preview=null; $('reviewCard').hidden=true; }
+    function edited() { const wasPreview=!!preview; dirty=true; clearPreview(); if(wasPreview)say('Draft changed. Review it again before confirming.'); controls(); }
+    function renderDraft() {
+      $('candidateRows').replaceChildren();
+      draft.forEach((item,index)=>{
+        const row=element('div',undefined,'candidate-row');
+        const name=document.createElement('input');name.type='text';name.maxLength=80;name.value=item.name;name.placeholder='Ingredient';name.setAttribute('aria-label','Ingredient name, row '+(index+1));name.autocomplete='off';
+        name.addEventListener('input',()=>{item.name=name.value;edited();});
+        const quantity=document.createElement('input');quantity.type='text';quantity.inputMode='decimal';quantity.value=item.quantity??'';quantity.placeholder='Unknown';quantity.setAttribute('aria-label','Amount for row '+(index+1)+', blank means unknown');
+        quantity.addEventListener('input',()=>{item.quantity=quantity.value.trim()===''?null:quantity.value;edited();});
+        const unit=document.createElement('select');unit.setAttribute('aria-label','Unit for row '+(index+1));
+        for(const value of ['g','ml','each']){const option=element('option',value);option.value=value;unit.append(option);}unit.value=item.unit;
+        unit.addEventListener('change',()=>{item.unit=unit.value;edited();});
+        const remove=element('button','Ã-','remove danger');remove.type='button';remove.setAttribute('aria-label','Remove ingredient row '+(index+1));remove.addEventListener('click',()=>{draft.splice(index,1);edited();renderDraft();$('addButton').focus();});
+        row.append(name,quantity,unit,remove);$('candidateRows').append(row);
+      });
+      controls();
+    }
+    function renderReceipt(receipt,replayed=false) {
+      const box=$('receipt');box.replaceChildren();box.hidden=false;
+      box.append(element('strong',replayed?'Already saved â€” original receipt':'Inventory saved'));
+      box.append(element('p','Revision '+receipt.from_revision+' â†’ '+receipt.to_revision+' Â· '+dateLabel(receipt.confirmed_at),'muted small'));
+      box.append(element('span','Receipt '),element('code',receipt.id));
+    }
+    function renderSaved() {
+      $('savedRevision').textContent='Confirmed revision '+saved.revision;
+      $('savedCount').textContent=saved.items.length+' item'+(saved.items.length===1?'':'s');
+      $('savedItems').replaceChildren();$('savedEmpty').hidden=saved.items.length>0;$('savedEmpty').textContent='No pantry items saved yet. Load the fictional example to try the workflow.';
+      for(const item of saved.items){const li=element('li');li.append(element('span',item.name),element('span',amount(item),'amount'+(item.quantity===null?' unknown':'')));$('savedItems').append(li);}
+      if(saved.receipts?.length){const latest=[...saved.receipts].sort((a,b)=>b.to_revision-a.to_revision)[0];renderReceipt(latest);}
+    }
+    async function refreshState({replaceDraft=false}={}) {
+      const next=await api('/api/state');
+      if(!Number.isSafeInteger(next.revision)||next.revision<0||!validItems(next.items)||!Array.isArray(next.receipts))throw new Error('Saved state could not be verified; the previous view is retained.');
+      if(!await validShoppingState(next))throw new Error('Saved shopping-list state could not be verified.');
+      if(shoppingPreview&&!shoppingSaveUncertain&&(next.revision!==shoppingPreview.inventory_revision||next.shopping_revision!==shoppingPreview.expected_list_revision||(next.recipe_hash&&shoppingPreview.list.recipe_hash!==next.recipe_hash)))clearShoppingPreview();
+      if(lastPlan?.recipe_hash&&next.recipe_hash&&lastPlan.recipe_hash!==next.recipe_hash)clearPlan('Recipe examples changed. Refresh the dinner preview before saving a checklist.');
+      if(planRevision!==null&&next.revision!==planRevision)clearPlan('Saved stock changed. Refresh the dinner preview before using its shopping amounts.');
+      saved=next;renderSaved();renderSavedList();
+      if(replaceDraft){draft=saved.items.map(item=>({...item}));dirty=false;renderDraft();}
+      else dirty=JSON.stringify(draft)!==JSON.stringify(saved.items);
+      controls();return saved;
+    }
+    function renderPreview(value) {
+      preview=value;$('previewItems').replaceChildren();
+      for(const item of value.items){const li=element('li');li.append(element('span',item.name),element('span',amount(item),'amount'+(item.quantity===null?' unknown':'')));$('previewItems').append(li);}
+      if(!value.items.length)$('previewItems').append(element('li','This will leave the pantry empty.'));
+      $('diff').replaceChildren();
+      for(const [key,label] of [['added','Add'],['changed','Change'],['removed','Remove']]){
+        const names=value.diff?.[key]||[];if(names.length){const p=element('p');p.append(element('strong',label+': '),document.createTextNode(names.join(', ')));$('diff').append(p);}
+      }
+      if(!$('diff').childElementCount)$('diff').append(element('p','No item changes compared with saved stock.'));
+      $('reviewCard').hidden=false;tick();$('reviewTitle').focus();controls();
+    }
+    function tick(){if(shoppingPreview){$('listExpiry').textContent='Pantry revision '+shoppingPreview.inventory_revision+' Â· replaces list revision '+shoppingPreview.expected_list_revision+' Â· expires '+dateLabel(shoppingPreview.expires_at);controls();}if(!preview)return;const seconds=Math.ceil((Date.parse(preview.expires_at)-Date.now())/1000);$('expiry').textContent=!uncertain&&saved&&preview.expected_revision!==saved.revision?'Saved stock changed. Review the draft again.':Number.isFinite(seconds)&&seconds>0?'Revision '+preview.expected_revision+' Â· expires in '+Math.floor(seconds/60)+':'+String(seconds%60).padStart(2,'0'):'Preview expired. Review the draft again.';controls();}
+    function clearPlan(message) {
+      planRequest++;planRevision=null;lastPlan=null;if(!shoppingSaveUncertain)clearShoppingPreview();
+      $('planStatus').textContent=message;$('shoppingRows').replaceChildren();$('shoppingWrap').hidden=true;
+      $('planSection').setAttribute('aria-busy','false');
+      for(const status of $('dinners').querySelectorAll('.dinner-status'))status.textContent='Preview unavailable';
+      for(const details of $('dinners').querySelectorAll('.dinner-details'))details.replaceChildren();
+    }
+    function shoppingStep(item) {
+      if(item.status==='have_enough')return 'Covered by recorded amount';
+      if(item.status==='check_quantity')return 'Check pantry amount; quantity is unknown';
+      if(item.status==='check_unit')return 'Check unit; no conversion assumed';
+      if(item.status==='check_presence')return 'Not recorded; check pantry before adding up to '+item.needed+' '+item.unit;
+      return 'Add '+item.needed+' '+item.unit;
+    }
+    function recordedAmount(item) {
+      if(item.status==='check_presence')return 'Not recorded';
+      if(item.on_hand===null)return 'Amount unknown'+(item.on_hand_unit?' ('+item.on_hand_unit+')':'');
+      return item.on_hand+' '+(item.on_hand_unit||item.unit);
+    }
+    function validPlan(plan, revision, selected) {
+      const ids=Array.isArray(plan?.dinners)?plan.dinners.map(d=>d.id):[];
+      const validRow=row=>row&&typeof row.name==='string'&&typeof row.required==='string'&&['g','ml','each'].includes(row.unit)&&
+        (row.on_hand===null||typeof row.on_hand==='string')&&(row.on_hand_unit===null||['g','ml','each'].includes(row.on_hand_unit))&&
+        (row.needed===null||typeof row.needed==='string')&&['add','have_enough','check_quantity','check_unit','check_presence'].includes(row.status)&&
+        Array.isArray(row.source_dinners)&&row.source_dinners.every(name=>typeof name==='string');
+      return plan&&plan.revision===revision&&['deterministic_local','meta_proposal'].includes(plan.mode)&&
+        Array.isArray(plan.selected_dinner_ids)&&plan.selected_dinner_ids.length===selected.length&&selected.every(id=>plan.selected_dinner_ids.includes(id))&&
+        Array.isArray(plan.dinners)&&plan.dinners.length>=1&&plan.dinners.length<=3&&new Set(ids).size===ids.length&&
+        plan.dinners.every(dinner=>ids.includes(dinner.id)&&typeof dinner.name==='string'&&validItems(dinner.ingredients)&&
+          dinner.selected===selected.includes(dinner.id)&&['check_pantry','shopping_needed','covered_amounts'].includes(dinner.readiness)&&
+          Array.isArray(dinner.shopping)&&dinner.shopping.every(validRow))&&Array.isArray(plan.shopping)&&plan.shopping.every(validRow);
+    }
+    function renderPlan(plan) {
+      const focusId=$('dinners').contains(document.activeElement)?document.activeElement.id:null;
+      $('dinners').replaceChildren();$('shoppingRows').replaceChildren();
+      plan.dinners.forEach(dinner=>{
+        const card=element('article',undefined,'dinner');
+        const label=element('label',undefined,'dinner-choice');
+        const input=document.createElement('input');input.type='checkbox';input.id='dinner-'+dinner.id;input.checked=dinnerIds.has(dinner.id);
+        const title=element('span',dinner.name);label.htmlFor=input.id;label.append(input,title);card.append(label);
+        if(dinner.why)card.append(element('p',dinner.why,'why'));
+        const status=element('p',dinner.readiness==='check_pantry'?'Check pantry first':dinner.readiness==='shopping_needed'?'Shopping needed':'Covered amounts in saved pantry','dinner-status');
+        const details=element('ul',undefined,'dinner-details');
+        for(const item of dinner.shopping)details.append(element('li',item.name+': requires '+item.required+' '+item.unit+'. '+shoppingStep(item)+'.'));
+        input.addEventListener('change',()=>{if(input.checked)dinnerIds.add(dinner.id);else dinnerIds.delete(dinner.id);loadPlan();});
+        card.append(status,details);$('dinners').append(card);
+      });
+      for(const item of plan.shopping){
+        const row=document.createElement('tr');const heading=element('th',item.name);heading.scope='row';heading.append(element('span','For '+item.source_dinners.join(' + '),'ingredient-source'));
+        row.append(heading);
+        for(const [label,text,className] of [['Required',item.required+' '+item.unit,''],['Recorded',recordedAmount(item),''],['Next step',shoppingStep(item),'status-label'+(item.status.startsWith('check_')?' unknown':'')]]){
+          const cell=element('td',undefined,className);cell.dataset.label=label;cell.append(element('span',text));row.append(cell);
+        }
+        $('shoppingRows').append(row);
+      }
+      $('shoppingSummary').textContent=plan.selected_dinner_ids.length?'Shared ingredients are combined once across the selected dinners. Not recorded does not mean absent from the physical pantry.':'No dinners selected. Select a dinner to calculate its shopping preview.';
+      $('shoppingWrap').hidden=false;
+      $('planStatus').textContent='Saved revision '+plan.revision+' Â· '+plan.selected_dinner_ids.length+' dinner'+(plan.selected_dinner_ids.length===1?'':'s')+' selected Â· '+(plan.mode==='meta_proposal'?'proposed by Muse Spark, checked by Hearth':'local example dinners');
+      planRevision=plan.revision;lastPlan=JSON.parse(JSON.stringify(plan));controls();
+      if(focusId)document.getElementById(focusId)?.focus();
+    }
+    async function loadPlan() {
+      clearPlan('Updating the dinner preview from saved stock.');
+      if(!saved){$('planStatus').textContent='Waiting for verified saved state.';return;}
+      const request=planRequest,revision=saved.revision;
+      if(dinnerIds===null){try{const all=await api('/api/plan');dinnerIds=new Set(all.dinners.map(d=>d.id));}catch(error){clearPlan('Dinner preview unavailable: '+error.message);return;}}
+      const selected=[...dinnerIds];
+      $('planSection').setAttribute('aria-busy','true');
+      try {
+        const plan=await api('/api/plan',{method:'POST',body:JSON.stringify({expected_revision:revision,dinner_ids:selected})});
+        if(request!==planRequest)return;
+        if(!saved||saved.revision!==revision){clearPlan('Saved stock changed. Refresh saved state to calculate a fresh shopping preview.');return;}
+        if(!validPlan(plan,revision,selected))throw new Error('The recipe preview could not be verified.');
+        renderPlan(plan);
+      }catch(error){
+        if(request!==planRequest)return;
+        clearPlan(error.status===409?'Saved stock changed elsewhere. Refresh saved state before using the shopping preview.':'Dinner preview unavailable: '+error.message+' Refresh saved state to try again.');
+      }finally{if(request===planRequest)$('planSection').setAttribute('aria-busy','false');}
+    }
+    function clearShoppingPreview(){shoppingPreview=null;$('listReviewCard').hidden=true;}
+    function validShoppingList(list) {
+      const slug=/^[a-z0-9][a-z0-9-]{0,39}$/;
+      return list&&list.action==='save_shopping_list'&&['deterministic_local','meta_proposal'].includes(list.mode)&&Number.isSafeInteger(list.inventory_revision)&&list.inventory_revision>=0&&
+        typeof list.recipe_hash==='string'&&/^[0-9a-f]{64}$/.test(list.recipe_hash)&&typeof list.qualification==='string'&&
+        Array.isArray(list.selected_dinner_ids)&&list.selected_dinner_ids.length<=3&&new Set(list.selected_dinner_ids).size===list.selected_dinner_ids.length&&list.selected_dinner_ids.every(id=>slug.test(id))&&
+        Array.isArray(list.shopping)&&list.shopping.length<=100&&list.shopping.every(row=>row&&typeof row.name==='string'&&typeof row.required==='string'&&
+          ['g','ml','each'].includes(row.unit)&&(row.on_hand===null||typeof row.on_hand==='string')&&(row.needed===null||typeof row.needed==='string')&&
+          (row.on_hand_unit===null||['g','ml','each'].includes(row.on_hand_unit))&&['add','have_enough','check_quantity','check_unit','check_presence'].includes(row.status)&&Array.isArray(row.source_dinners)&&row.source_dinners.every(name=>typeof name==='string'));
+    }
+    async function listHash(value) {
+      const stable=v=>Array.isArray(v)?v.map(stable):v&&typeof v==='object'?Object.fromEntries(Object.keys(v).sort().map(key=>[key,stable(v[key])])):v;
+      if(!globalThis.crypto?.subtle)throw new Error('This browser cannot verify the shopping-list content.');
+      return [...new Uint8Array(await crypto.subtle.digest('SHA-256',new TextEncoder().encode(JSON.stringify(stable(value)))))].map(x=>x.toString(16).padStart(2,'0')).join('');
+    }
+    async function validListReceipt(receipt) {
+      return receipt&&typeof receipt.id==='string'&&typeof receipt.preview_id==='string'&&receipt.action==='save_shopping_list'&&
+        Number.isSafeInteger(receipt.from_list_revision)&&receipt.from_list_revision>=0&&receipt.to_list_revision===receipt.from_list_revision+1&&
+        Number.isSafeInteger(receipt.inventory_revision)&&receipt.inventory_revision>=0&&typeof receipt.confirmed_at==='string'&&Number.isFinite(Date.parse(receipt.confirmed_at))&&
+        validShoppingList(receipt.list)&&receipt.list.inventory_revision===receipt.inventory_revision&&receipt.content_hash===await listHash(receipt.list);
+    }
+    async function validShoppingState(state) {
+      if(!('shopping_revision' in state))return true; // Older local servers retain inventory/dinner behavior; list save stays disabled.
+      if(!Number.isSafeInteger(state.shopping_revision)||state.shopping_revision<0||!Array.isArray(state.shopping_receipts)||state.shopping_receipts.length>10)return false;
+      for(const receipt of state.shopping_receipts)if(!await validListReceipt(receipt))return false;
+      if(state.shopping_revision===0)return state.shopping_list===null&&state.shopping_receipts.length===0;
+      return await validListReceipt(state.shopping_list)&&state.shopping_list.to_list_revision===state.shopping_revision&&state.shopping_receipts.some(r=>r.id===state.shopping_list.id&&r.content_hash===state.shopping_list.content_hash);
+    }
+    function listRows(target,list) {
+      target.replaceChildren();
+      for(const item of list.shopping){const row=element('li');row.append(element('span',item.name+': '+shoppingStep(item)),element('span','For '+item.source_dinners.join(' + '),'muted small'));target.append(row);}
+      if(!list.shopping.length)target.append(element('li','Empty checklist: no dinners selected.'));
+    }
+    function renderSavedList() {
+      $('savedListRows').replaceChildren();
+      if(!Number.isSafeInteger(saved?.shopping_revision)){$('savedListStatus').textContent='Shopping-list saving is unavailable in this local preview.';return;}
+      const receipt=saved.shopping_list;
+      if(!receipt){$('savedListStatus').textContent='No shopping list saved. Review the dinner preview to save a local checklist.';return;}
+      const stale=receipt.inventory_revision!==saved.revision;const recipeChanged=saved.recipe_hash&&receipt.list.recipe_hash!==saved.recipe_hash;
+      $('savedListStatus').textContent='List revision '+receipt.to_list_revision+' Â· based on pantry revision '+receipt.inventory_revision+(stale||recipeChanged?' Â· pantry or recipe source changed; review a fresh list before using amounts.':' Â· matches the current saved pantry and reviewed recipe source.')+' No stock or order changed.';
+      listRows($('savedListRows'),receipt.list);
+    }
+    function renderListReceipt(receipt,replayed) {
+      const box=$('listReceipt');box.replaceChildren();box.hidden=false;
+      box.append(element('strong',replayed?'Original shopping-list receipt recovered':'Shopping list saved locally'));
+      box.append(element('p','List revision '+receipt.from_list_revision+' â†’ '+receipt.to_list_revision+' Â· pantry revision '+receipt.inventory_revision+' Â· '+dateLabel(receipt.confirmed_at),'muted small'));
+      box.append(element('span','Receipt '),element('code',receipt.id));
+    }
+    async function finishListSave(data) {
+      const receipt=data?.receipt;
+      if(!await validListReceipt(receipt)||receipt.preview_id!==shoppingPreview?.id||receipt.content_hash!==shoppingPreview?.content_hash){const error=new Error('The shopping-list receipt could not be verified.');error.uncertain=true;throw error;}
+      shoppingSaveUncertain=false;clearShoppingPreview();renderListReceipt(receipt,!!data.replayed);
+      $('listMessage').textContent=data.replayed?'Original receipt recovered. The current saved list is read separately; no new list was created.':'Checklist saved locally. Pantry stock and purchases are unchanged.';
+      try{await refreshState();await loadPlan();}catch(_){clearPlan('Saved pantry could not be verified. Refresh saved state before planning.');$('savedListStatus').textContent='Save receipt confirmed; the current list could not be refreshed. Use Refresh saved state.';}
+      $('listReceipt').focus();
+    }
+    $('reviewListButton').addEventListener('click',async()=>{
+      if(busy||uncertain||shoppingSaveUncertain||!saved||!lastPlan||planRevision!==saved.revision||!Number.isSafeInteger(saved.shopping_revision))return;
+      const generation=planRequest,revision=saved.revision,listRevision=saved.shopping_revision,selection=[...lastPlan.selected_dinner_ids],rows=JSON.stringify(lastPlan.shopping);
+      busy=true;clearShoppingPreview();controls();
+      try{
+        const data=await api('/api/shopping/preview',{method:'POST',body:JSON.stringify({expected_revision:revision,dinner_ids:selection,expected_list_revision:listRevision})});const value=data?.preview;
+        if(generation!==planRequest||saved?.revision!==revision||saved?.shopping_revision!==listRevision)return;
+        if(!value||typeof value.id!=='string'||value.action!=='save_shopping_list'||value.state!=='pending'||value.inventory_revision!==revision||value.expected_list_revision!==listRevision||!validShoppingList(value.list)||JSON.stringify(value.list.selected_dinner_ids)!==JSON.stringify(selection)||JSON.stringify(value.list.shopping)!==rows||(lastPlan?.recipe_hash&&value.list.recipe_hash!==lastPlan.recipe_hash)||value.content_hash!==await listHash(value.list)||!Number.isFinite(Date.parse(value.expires_at))){throw new Error('The shopping-list preview could not be verified.');}
+        shoppingPreview=value;listRows($('listReviewRows'),value.list);$('listReviewSummary').textContent=selection.length?'Replace the saved checklist with this exact '+selection.length+'-dinner snapshot. Stock checks remain unresolved.':'Save an empty checklist, replacing the current list. Earlier receipts remain in history.';
+        $('listReviewCard').hidden=false;tick();$('listReviewTitle').focus();$('listMessage').textContent='Review the exact checklist before saving. Nothing has been saved yet.';
+      }catch(error){clearShoppingPreview();$('listMessage').textContent=error.message+' Refresh saved state before reviewing again.';}
+      finally{busy=false;controls();}
+    });
+    $('saveListButton').addEventListener('click',async()=>{
+      if(busy||uncertain||!shoppingPreview)return;busy=true;controls();const request={preview_id:shoppingPreview.id,content_hash:shoppingPreview.content_hash};
+      try{await finishListSave(await api('/api/shopping/confirm',{method:'POST',body:JSON.stringify(request)}));}
+      catch(error){if(error.uncertain){shoppingSaveUncertain=true;clearPlan('Shopping-list save outcome is unclear. Resolve its receipt before changing this checklist.');$('listMessage').textContent='Save outcome is unclear. Check the saved result, or retry this same shopping-list ID. Editing is paused.';}else{shoppingSaveUncertain=false;clearShoppingPreview();$('listMessage').textContent=error.message+' Nothing new is confirmed; refresh saved state and review again.';try{await refreshState();}catch(_){clearPlan('Saved pantry could not be verified. Refresh saved state.');}}}
+      finally{busy=false;controls();}
+    });
+    $('checkListButton').addEventListener('click',async()=>{
+      if(busy||!shoppingPreview)return;busy=true;controls();
+      try{await refreshState();const receipt=saved.shopping_receipts?.find(row=>row.preview_id===shoppingPreview.id);if(receipt)await finishListSave({receipt,replayed:true});else $('listMessage').textContent='No matching receipt is visible. Retry this same list-save ID to resolve its outcome; do not create a new preview.';}
+      catch(error){$('listMessage').textContent=error.message+' Keep this exact list-save ID and check or retry when available.';}
+      finally{busy=false;controls();}
+    });
+    async function finishConfirmation(data) {
+      const receipt=data?.receipt;
+      if(!receipt||typeof receipt.id!=='string'||receipt.preview_id!==preview?.id||!Number.isSafeInteger(receipt.from_revision)||!Number.isSafeInteger(receipt.to_revision)||typeof receipt.confirmed_at!=='string'||!validItems(receipt.items)){
+        const error=new Error('The save receipt could not be verified.');error.uncertain=true;throw error;
+      }
+      uncertain=false;dirty=false;clearPreview();
+      // The receipt is authoritative even if a follow-up read is temporarily unavailable.
+      saved={...saved,revision:data.receipt.to_revision,items:data.receipt.items,receipts:[data.receipt,...(saved?.receipts||[])]};
+      draft=data.receipt.items.map(item=>({...item}));renderSaved();renderDraft();renderReceipt(data.receipt,data.replayed);
+      say(data.replayed?'This confirmation was already saved. Its original receipt is shown.':'Inventory saved. The dinner preview now uses your confirmed pantry.');
+      $('receipt').focus();await loadPlan();
+      try{await refreshState();}catch(_){say('The save receipt is confirmed. Refresh saved state when the local server is available.','warning');}
+    }
+    $('pantryForm').addEventListener('submit',async event=>{
+      event.preventDefault();if(busy||uncertain||!saved)return;busy=true;controls();
+      try {const data=await api('/api/preview',{method:'POST',body:JSON.stringify({expected_revision:saved.revision,items:draft.map(({name,quantity,unit})=>({name:name.trim(),quantity,unit}))})});renderPreview(data.preview);say('Review every item and any removals before confirming.');}
+      catch(error){clearPreview();say(error.message,'error');if(error.status===409){clearPlan('Saved stock changed elsewhere. Refresh saved state before planning.');try{await refreshState();say('Saved stock changed elsewhere. Your draft is retained; review again against the current revision.','warning');}catch(_){say('Saved stock changed, but could not be refreshed. Your draft is retained. Refresh saved state before continuing.','warning');}}}
+      finally{busy=false;controls();}
+    });
+    $('confirmButton').addEventListener('click',async()=>{
+      if(busy||!preview)return;busy=true;controls();const id=preview.id;
+      try{const data=await api('/api/confirm',{method:'POST',body:JSON.stringify({preview_id:id})});await finishConfirmation(data);}
+      catch(error){if(error.uncertain){uncertain=true;clearPlan('Save outcome is unclear. Resolve the pantry confirmation before planning.');say('The save response is unclear. Draft editing is paused. Check the saved result, or retry this same confirmation ID.','warning');}else{uncertain=false;clearPreview();say(error.message+' Your draft is retained; review again.','error');try{await refreshState();}catch(_){clearPlan('Saved pantry could not be verified. Refresh saved state before planning.');}}}
+      finally{busy=false;controls();}
+    });
+    $('checkButton').addEventListener('click',async()=>{
+      if(busy||!preview)return;busy=true;controls();
+      try{await refreshState();const receipt=saved.receipts?.find(item=>item.preview_id===preview.id);if(receipt)await finishConfirmation({receipt,replayed:true});else say('No matching receipt is visible yet. Retry the same confirmation to resolve its outcome.','warning');}
+      catch(error){say(error.message+' Keep this preview and retry the same confirmation when available.','warning');}
+      finally{busy=false;controls();}
+    });
+    $('exampleButton').addEventListener('click',()=>{draft=example();dirty=true;clearPreview();renderDraft();say('Fictional ingredients loaded into the draft only. Correct them, then review changes.');});
+    $('savedButton').addEventListener('click',()=>{draft=saved.items.map(item=>({...item}));dirty=false;clearPreview();renderDraft();say('Draft reset to the last confirmed pantry.');});
+    $('addButton').addEventListener('click',()=>{draft.push({name:'',quantity:null,unit:'g'});edited();renderDraft();$('candidateRows').lastElementChild?.querySelector('input').focus();});
+    $('reloadButton').addEventListener('click',async()=>{if(busy)return;busy=true;controls();try{await refreshState({replaceDraft:saved===null});if(!uncertain&&!shoppingSaveUncertain)await loadPlan();say(uncertain?'Saved state refreshed. Resolve the pending confirmation using its same ID.':'Saved state refreshed. Unsaved draft changes are retained.');}catch(error){clearPlan('Saved pantry could not be verified. Refresh saved state before planning.');say(error.message,'error');}finally{busy=false;controls();}});
+
+    // ---- Meta model features: scan, voice, Spark dinner plans
+    async function postRaw(url, body, type){
+      let response; try{response=await fetch(url,{method:'POST',cache:'no-store',headers:{'Content-Type':type},body});}
+      catch(_){throw new Error('Hearth could not be reached.');}
+      let data; try{data=await response.json();}catch(_){throw new Error('Hearth returned an unreadable response.');}
+      if(!response.ok)throw new Error(data.error?.message||'The request failed.');
+      return data;
+    }
+    function drawScan(img, items){
+      const canvas=$('scanCanvas'),ctx=canvas.getContext('2d');canvas.width=img.naturalWidth;canvas.height=img.naturalHeight;ctx.drawImage(img,0,0);
+      ctx.lineWidth=Math.max(3,img.naturalWidth/250);ctx.font=Math.max(14,img.naturalWidth/45)+'px system-ui';
+      for(const item of items){ctx.strokeStyle=item.needs_check?'#f59e0b':'#22c55e';ctx.fillStyle=ctx.strokeStyle;
+        for(const b of item.boxes||[]){const sx=img.naturalWidth/(item.image_size?.w||img.naturalWidth),sy=img.naturalHeight/(item.image_size?.h||img.naturalHeight);
+          ctx.strokeRect(b.x1*sx,b.y1*sy,(b.x2-b.x1)*sx,(b.y2-b.y1)*sy);}
+        const b=item.boxes?.[0];if(b){const sx=img.naturalWidth/(item.image_size?.w||img.naturalWidth),sy=img.naturalHeight/(item.image_size?.h||img.naturalHeight);ctx.fillText(item.name,b.x1*sx+4,Math.max(18,b.y1*sy-6));}}
+      $('scanStage').hidden=false;
+    }
+    $('scanInput').addEventListener('change',async()=>{
+      const file=$('scanInput').files[0];if(!file)return;$('scanInput').value='';
+      if(busy||uncertain){say('Finish the pending save first.');return;}
+      const isVideo=file.type.startsWith('video/');
+      $('scanStatus').textContent=isVideo?'Muse Spark is watching the clip, then SAM 3.1 is tracking each item across frames. This takes about a minuteâ€¦':'Muse Spark is reading the photo, then SAM 3.1 is checking each itemâ€¦';
+      const img=new Image();img.src=URL.createObjectURL(file);
+      try{
+        const result=await postRaw('/api/ai/scan',file,file.type);
+        if(isVideo){$('scanStage').hidden=true;}else{await img.decode().catch(()=>{});drawScan(img,result.items);}
+        draft=result.items.map(i=>({name:i.name,quantity:i.quantity,unit:i.unit}));dirty=true;clearPreview();renderDraft();
+        const checks=result.items.filter(i=>i.needs_check);$('scanChecks').replaceChildren(...checks.map(i=>element('li',i.name+': '+i.reasons.join(', '),'flag')));
+        $('scanStatus').textContent=result.items.length+' items drafted'+(checks.length?', '+checks.length+' need a quick check (orange).':'.')+(isVideo?' Countable items were tracked across the video by SAM 3.1 and counted once each.':' Countable items were confirmed one by one by SAM 3.1.')+' Review the draft, then confirm.';
+        say('Photo scanned into the draft. Nothing is saved until you review and confirm.');
+      }catch(error){$('scanStatus').textContent='Scan failed: '+error.message;}
+    });
+    function speak(text){try{if(!('speechSynthesis' in window)||!text)return;speechSynthesis.cancel();const u=new SpeechSynthesisUtterance(text);u.rate=1.02;speechSynthesis.speak(u);}catch(_){}}
+    async function planDinners(request){
+      if(busy||uncertain)return;$('askButton').disabled=true;$('askStatus').textContent='Muse Spark is planning against your confirmed pantryâ€¦';
+      try{
+        const result=await api('/api/ai/plan',{method:'POST',body:JSON.stringify({request})});
+        $('answer').replaceChildren(element('span',result.spoken_answer+' '),element('strong',result.hearth_check||''));$('answer').hidden=false;speak(result.spoken_answer+' '+(result.hearth_check||''));
+        $('assumptions').replaceChildren(...(result.assumptions||[]).map(a=>element('li','Assumed: '+a)));
+        $('askStatus').textContent='Two dinners proposed by Muse Spark. Hearth recomputed the shopping list from saved stock'+(result.pantry_flags_corrected?' and corrected '+result.pantry_flags_corrected+' pantry claims.':'.');
+        dinnerIds=null;await loadPlan();$('planSection').scrollIntoView({behavior:'smooth',block:'start'});
+      }catch(error){$('askStatus').textContent='Planning failed: '+error.message;}
+      finally{$('askButton').disabled=false;}
+    }
+    $('askButton').addEventListener('click',()=>planDinners($('askText').value));
+    $('askText').addEventListener('keydown',e=>{if(e.key==='Enter'){e.preventDefault();planDinners($('askText').value);}});
+    function wavFrom(buffer){
+      const rate=buffer.sampleRate,data=buffer.getChannelData(0),out=new DataView(new ArrayBuffer(44+data.length*2));
+      const str=(o,t)=>{for(let i=0;i<t.length;i++)out.setUint8(o+i,t.charCodeAt(i));};
+      str(0,'RIFF');out.setUint32(4,36+data.length*2,true);str(8,'WAVE');str(12,'fmt ');out.setUint32(16,16,true);out.setUint16(20,1,true);out.setUint16(22,1,true);
+      out.setUint32(24,rate,true);out.setUint32(28,rate*2,true);out.setUint16(32,2,true);out.setUint16(34,16,true);str(36,'data');out.setUint32(40,data.length*2,true);
+      for(let i=0;i<data.length;i++){const v=Math.max(-1,Math.min(1,data[i]));out.setInt16(44+i*2,v<0?v*0x8000:v*0x7fff,true);}
+      return new Blob([out],{type:'audio/wav'});
+    }
+    let recorder=null,chunks=[];
+    async function startMic(){
+      if(recorder)return;try{const stream=await navigator.mediaDevices.getUserMedia({audio:true});chunks=[];recorder=new MediaRecorder(stream);
+        recorder.ondataavailable=e=>chunks.push(e.data);recorder.start();$('micButton').textContent='Listeningâ€¦ release to send';}
+      catch(_){$('askStatus').textContent='Microphone unavailable. Type your question instead.';}
+    }
+    async function stopMic(){
+      if(!recorder)return;const rec=recorder;recorder=null;$('micButton').textContent='Hold to ask';
+      await new Promise(r=>{rec.onstop=r;rec.stop();});rec.stream.getTracks().forEach(t=>t.stop());
+      try{
+        const decoded=await new AudioContext().decodeAudioData(await new Blob(chunks).arrayBuffer());
+        const off=new OfflineAudioContext(1,Math.ceil(decoded.duration*16000),16000);const src=off.createBufferSource();src.buffer=decoded;src.connect(off.destination);src.start();
+        const wav=wavFrom(await off.startRendering());$('askStatus').textContent='Muse Voice Transcribe is listeningâ€¦';
+        const heard=await postRaw('/api/ai/transcribe',wav,'audio/wav');$('askText').value=heard.transcript;
+        if(heard.transcript.trim())await planDinners(heard.transcript);else $('askStatus').textContent='Nothing heard. Try again.';
+      }catch(error){$('askStatus').textContent='Voice failed: '+error.message;}
+    }
+    for(const [down,up] of [['pointerdown','pointerup'],['keydown','keyup']]){
+      $('micButton').addEventListener(down,e=>{if(e.type==='keydown'&&e.key!==' ')return;e.preventDefault();startMic();});
+      $('micButton').addEventListener(up,e=>{if(e.type==='keyup'&&e.key!==' ')return;e.preventDefault();stopMic();});
+    }
+    $('micButton').addEventListener('pointerleave',()=>stopMic());
+    async function start(){busy=true;controls();try{await refreshState({replaceDraft:true});await loadPlan();say('Local pantry loaded. Draft changes stay separate until you review and confirm.');}catch(error){say(error.message+' Use Refresh saved state to reconnect.','error');$('savedEmpty').textContent='Saved stock could not be loaded.';$('planStatus').textContent='Waiting for verified saved state.';}finally{busy=false;controls();}}
+    setInterval(tick,1000);start();
+  </script>
+</body>
+</html>
